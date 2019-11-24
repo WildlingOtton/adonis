@@ -7,11 +7,11 @@
   
   
     //Get Heroku ClearDB connection information
-  $cleardb_url      = parse_url(getenv("mysql://b535a409effbb0:ab29bfbf@us-cdbr-iron-east-05.cleardb.net/heroku_b29d41fe2ddb930?reconnect=true"));
-  $cleardb_server   = $cleardb_url["us-cdbr-iron-east-05.cleardb.net"];
-  $cleardb_username = $cleardb_url["b535a409effbb0"];
-  $cleardb_password = $cleardb_url["ab29bfbf"];
-  $cleardb_db       = substr($cleardb_url["heroku_b29d41fe2ddb930"],1);
+  $url      = parse_url(getenv("mysql://b535a409effbb0:ab29bfbf@us-cdbr-iron-east-05.cleardb.net/heroku_b29d41fe2ddb930?reconnect=true"));
+  $server   = $url["us-cdbr-iron-east-05.cleardb.net"];
+  $username = $url["b535a409effbb0"];
+  $password = $url["ab29bfbf"];
+  $db       = substr($url["heroku_b29d41fe2ddb930"],1);
 
 
   $active_group = 'default';
@@ -19,10 +19,10 @@
 
   $db['default'] = array(
       'dsn'    => '',
-      'hostname' => $cleardb_server,
-      'username' => $cleardb_username,
-      'password' => $cleardb_password,
-      'database' => $cleardb_db,
+      'hostname' => $server,
+      'username' => $username,
+      'password' => $password,
+      'database' => $db,
       'dbdriver' => 'mysqli',
       'dbprefix' => '',
       'pconnect' => FALSE,
@@ -40,7 +40,7 @@
   );
 
   // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-  $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+  $connection = new mysqli($server, $username, $password, $db);
   if ($connection->connect_error) die($connection->connect_error);
 
   function createTable($name, $query)
