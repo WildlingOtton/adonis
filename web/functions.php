@@ -3,7 +3,7 @@
 //  $dbname  = 'adonis';   
 //  $dbuser  = 'adonis';   
 //  $dbpass  = 'Foster75';   
-//  $appname = "Adonis Weightlifting and Gym Tracker"; 
+ $appname = "Adonis Weightlifting and Gym Tracker"; 
   
   
     //Get Heroku ClearDB connection information
