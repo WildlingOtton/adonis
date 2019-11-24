@@ -39,7 +39,7 @@
       'save_queries' => TRUE
   );
 
-  $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+  $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
   if ($connection->connect_error) die($connection->connect_error);
 
   function createTable($name, $query)
