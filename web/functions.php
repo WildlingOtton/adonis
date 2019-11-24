@@ -39,6 +39,7 @@
       'save_queries' => TRUE
   );
 
+  // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
   $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
   if ($connection->connect_error) die($connection->connect_error);
 
