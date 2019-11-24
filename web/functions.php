@@ -11,13 +11,13 @@
   $server   = $url["us-cdbr-iron-east-05.cleardb.net"];
   $username = $url["b535a409effbb0"];
   $password = $url["ab29bfbf"];
-  $db1       = substr($url["heroku_b29d41fe2ddb930"],1);
+  $db       = substr($url["heroku_b29d41fe2ddb930"],1);
 
 
   $active_group = 'default';
   $query_builder = TRUE;
 
-  $db['default'] = array(
+  $db1['default'] = array(
       'dsn'    => '',
       'hostname' => $server,
       'username' => $username,
@@ -40,7 +40,7 @@
   );
 
   // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-  $connection = new mysqli($server, $username, $password, $db1);
+  $connection = new mysqli($server, $username, $password, $db);
   if ($connection->connect_error) die($connection->connect_error);
 
   function createTable($name, $query)
