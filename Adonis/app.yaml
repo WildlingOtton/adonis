@@ -1,0 +1,58 @@
+runtime: php55
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /.*
+  script: /index.php
+
+- url: /css
+  static_dir: css
+
+- url: /images
+  static_dir: images
+
+- url: /js
+  static_dir: js
+
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+
+- url: /logout.php 
+  script: /logout.php
+  
+- url: /tracker.php 
+  script: /tracker.php
+  
+- url: /signup.php 
+  script: /signup.php
+  
+- url: /profile.php 
+  script: /profile.php
+  
+- url: /plan.php 
+  script: /plan.php
+  
+- url: /members.php 
+  script: /members.php
+  
+- url: /signup.php 
+  script: /signup.php
+  
+- url: /logout.php 
+  script: /logout.php
+  
+- url: /header.php 
+  script: /header.php
+  
+- url: /checkuser.php 
+  script: /checkuser.php
+  
+- url: /formtests.php 
+  script: /formtests.php
+  
+- url: /functions.php 
+  script: /functions.php
+  
+ 
