@@ -45,11 +45,11 @@
 
   function createTable($name, $query)
   {
-    queryMysql("CREATE TABLE IF NOT EXISTS $name($query)");
+    queryMysqli("CREATE TABLE IF NOT EXISTS $name($query)");
     echo "Table '$name' created or already exists.<br>";
   }
 
-  function queryMysql($query)
+  function queryMysqli($query)
   {
     global $connection;
     $result = $connection->query($query);
@@ -82,7 +82,7 @@
     if (file_exists("$user.jpg"))
       echo "<img src='$user.jpg' style='float:left;'>";
 
-    $result = queryMysql("SELECT * FROM profiles WHERE user='$user'");
+    $result = queryMysqli("SELECT * FROM profiles WHERE user='$user'");
 
     if ($result->num_rows)
     {
