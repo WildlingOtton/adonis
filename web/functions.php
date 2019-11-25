@@ -41,7 +41,7 @@
 
   // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
   $connection = new mysqli($server, $username, $password, $db);
-  if ($connection->connect_error) die($connection->connect_error);
+  // if ($connection->connect_error) die($connection->connect_error);
 
   function createTable($name, $query)
   {
