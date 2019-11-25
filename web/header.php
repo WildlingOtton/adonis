@@ -16,11 +16,11 @@
   else $loggedin = FALSE;
 
   echo "<title>$appname$userstr</title><link rel='stylesheet' " .
-       "href='css/styles.css' type='text/css'>"                     .
+       "href='styles.css' type='text'>"                     .
        "</head><body><center><canvas id='logo' width='624' "    .
        "height='96'>$appname</canvas></center>"             .
        "<div class='appname'>$appname$userstr</div>"            .
-       "<script src='js/javascript.js'></script>";
+       "<script src='javascript.js'></script>";
 
   if ($loggedin)
   {
