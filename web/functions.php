@@ -53,7 +53,7 @@
   {
     global $connection;
     $result = $connection->query($query);
-    if (!$result) die($connection->error);
+    if (!$result) die("Fatal Error");
     return $result;
   }
 
@@ -72,7 +72,8 @@
     global $connection;
     $var = strip_tags($var);
     $var = htmlentities($var);
-    $var = stripslashes($var);
+    if (get_magic_quotes_gpc())
+      $var = stripslashes($var);
     return $connection->real_escape_string($var);
   }
 
@@ -88,5 +89,6 @@
       $row = $result->fetch_array(MYSQLI_ASSOC);
       echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
     }
+    else echo "<p>Nothing to see here, yet</p><br>";
   }
 ?>
