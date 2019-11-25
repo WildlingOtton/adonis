@@ -16,7 +16,7 @@
       request.open("POST", "checkuser.php", true)
       request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
       request.setRequestHeader("Content-length", params.length)
-      request.setRequestHeader("Connection", "close")
+      
 
       request.onreadystatechange = function()
       {
@@ -56,13 +56,13 @@ _END;
       $error = "Not all fields were entered<br><br>";
     else
     {
-      $result = queryMySQLi("SELECT * FROM members WHERE user='$user'");
+      $result = queryMySQL("SELECT * FROM members WHERE user='$user'");
 
       if ($result->num_rows)
         $error = "That username already exists<br><br>";
       else
       {
-        queryMySQLi("INSERT INTO members VALUES('$user', '$pass')");
+        queryMySQL("INSERT INTO members VALUES('$user', '$pass')");
         die("<h4>Account created</h4>Please Log in.<br><br>");
       }
     }

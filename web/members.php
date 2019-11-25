@@ -23,17 +23,17 @@
   {
     $add = sanitizeString($_GET['add']);
 
-    $result = queryMySQLi("SELECT * FROM friends WHERE user='$add' AND friend='$user'");
+    $result = queryMySQL("SELECT * FROM friends WHERE user='$add' AND friend='$user'");
     if (!$result->num_rows)
-      queryMySQLi("INSERT INTO friends VALUES ('$add', '$user')");
+      queryMySQL("INSERT INTO friends VALUES ('$add', '$user')");
   }
   elseif (isset($_GET['remove']))
   {
     $remove = sanitizeString($_GET['remove']);
-    queryMySQLi("DELETE FROM friends WHERE user='$remove' AND friend='$user'");
+    queryMySQL("DELETE FROM friends WHERE user='$remove' AND friend='$user'");
   }
 
-  $result = queryMySQLi("SELECT user FROM members ORDER BY user");
+  $result = queryMySQL("SELECT user FROM members ORDER BY user");
   $num    = $result->num_rows;
 
   echo "<h3>Other Members</h3><ul>";
@@ -47,10 +47,10 @@
       $row['user'] . "'>" . $row['user'] . "</a>";
     $follow = "follow";
 
-    $result1 = queryMySQLi("SELECT * FROM friends WHERE
+    $result1 = queryMySQL("SELECT * FROM friends WHERE
       user='" . $row['user'] . "' AND friend='$user'");
     $t1      = $result1->num_rows;
-    $result1 = queryMySQLi("SELECT * FROM friends WHERE
+    $result1 = queryMySQL("SELECT * FROM friends WHERE
       user='$user' AND friend='" . $row['user'] . "'");
     $t2      = $result1->num_rows;
 
