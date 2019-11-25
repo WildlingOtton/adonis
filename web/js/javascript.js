@@ -3,7 +3,7 @@ context              = canvas.getContext('2d')
 context.font         = 'bold italic 97px Georgia'
 context.textBaseline = 'top'
 image                = new Image()
-// image.src            = 'https://adonis-regis.herokuapp.com/web/images/barbell.gif'
+image.src            = 'images/barbell.GIF'
 
 image.onload = function()
 {
