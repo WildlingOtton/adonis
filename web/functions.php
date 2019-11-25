@@ -17,27 +17,27 @@
   $active_group = 'default';
   $query_builder = TRUE;
 
-  $db['default'] = array(
-      'dsn'    => '',
-      'hostname' => $server,
-      'username' => $username,
-      'password' => $password,
-      'database' => $db,
-      'dbdriver' => 'mysqli',
-      'dbprefix' => '',
-      'pconnect' => FALSE,
-      'db_debug' => (ENVIRONMENT !== 'production'),
-      'cache_on' => FALSE,
-      'cachedir' => '',
-      'char_set' => 'utf8',
-      'dbcollat' => 'utf8_general_ci',
-      'swap_pre' => '',
-      'encrypt' => FALSE,
-      'compress' => FALSE,
-      'stricton' => FALSE,
-      'failover' => array(),
-      'save_queries' => TRUE
-  );
+  // $db['default'] = array(
+  //     'dsn'    => '',
+  //     'hostname' => $server,
+  //     'username' => $username,
+  //     'password' => $password,
+  //     'database' => $db,
+  //     'dbdriver' => 'mysqli',
+  //     'dbprefix' => '',
+  //     'pconnect' => FALSE,
+  //     'db_debug' => (ENVIRONMENT !== 'production'),
+  //     'cache_on' => FALSE,
+  //     'cachedir' => '',
+  //     'char_set' => 'utf8',
+  //     'dbcollat' => 'utf8_general_ci',
+  //     'swap_pre' => '',
+  //     'encrypt' => FALSE,
+  //     'compress' => FALSE,
+  //     'stricton' => FALSE,
+  //     'failover' => array(),
+  //     'save_queries' => TRUE
+  // );
 
   // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
   $connection = new mysqli($server, $username, $password, $db);
