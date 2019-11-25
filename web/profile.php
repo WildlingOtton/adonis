@@ -5,7 +5,7 @@
 
   echo "<div class='main'><h3>Your Profile</h3>";
 
-  $result = queryMysql("SELECT * FROM profiles WHERE user='$user'");
+  $result = queryMySQLi("SELECT * FROM profiles WHERE user='$user'");
     
   if (isset($_POST['text']))
   {
@@ -13,8 +13,8 @@
     $text = preg_replace('/\s\s+/', ' ', $text);
 
     if ($result->num_rows)
-         queryMysql("UPDATE profiles SET text='$text' where user='$user'");
-    else queryMysql("INSERT INTO profiles VALUES('$user', '$text')");
+         queryMySQLi("UPDATE profiles SET text='$text' where user='$user'");
+    else queryMySQLi("INSERT INTO profiles VALUES('$user', '$text')");
   }
   else
   {
