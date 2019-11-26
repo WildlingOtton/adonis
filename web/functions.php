@@ -42,6 +42,7 @@
   // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
   $connection = new mysqli($server, $username, $password, $db);
   // if ($connection->connect_error) die($connection->connect_error);
+  if ($connection->connect_error) die("Fatal Error");
 
   function createTable($name, $query)
   {
@@ -74,7 +75,7 @@
     $var = htmlentities($var);
     if (get_magic_quotes_gpc())
       $var = stripslashes($var);
-    return $connection->real_escape_string($var);
+    return $connection->mysqli_real_real_escape_string($connection, $var);
   }
 
   function showProfile($user)
