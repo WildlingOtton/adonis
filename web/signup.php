@@ -3,8 +3,6 @@
 
   echo <<<_END
   <script>
-  $connection = new mysqli($server, $username, $password, $db);
-  if ($connection->connect_error) die("Fatal Error");
     function checkUser(user)
     {
       if (user.value == '')
