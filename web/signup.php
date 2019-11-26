@@ -2,52 +2,52 @@
   require_once 'header.php';
 
   echo <<<_END
-  // <script>
-  //   function checkUser(user)
-  //   {
-  //     if (user.value == '')
-  //     {
-  //       $('#used').html('&nbsp;')
-  //       return
-  //     }
+  <script>
+    function checkUser(user)
+    {
+      if (user.value == '')
+      {
+        $('#used').html('&nbsp;')
+        return
+      }
 
-  //     $.post
-  //     (
-  //       'checkuser.php',
-  //       { user : user.value },
-  //       function(data)
-  //       {
-  //         $('#used').html(data)
-  //       }
-  //     )
-  //   }
-  // </script>  
+      $.post
+      (
+        'checkuser.php',
+        { user : user.value },
+        function(data)
+        {
+          $('#used').html(data)
+        }
+      )
+    }
+  </script>  
   <div class='main'><h3>Please enter your details to sign up</h3>
 _END;
 
-  // $error = $user = $pass = "";
-  // if (isset($_SESSION['user'])) destroySession();
+  $error = $user = $pass = "";
+  if (isset($_SESSION['user'])) destroySession();
 
-  // if (isset($_POST['user']))
-  // {
-  //   $user = sanitizeString($_POST['user']);
-  //   $pass = sanitizeString($_POST['pass']);
+  if (isset($_POST['user']))
+  {
+    $user = sanitizeString($_POST['user']);
+    $pass = sanitizeString($_POST['pass']);
 
-  //   if ($user == "" || $pass == "")
-  //     $error = 'Not all fields were entered<br><br>';
-  //   else
-  //   {
-  //     $result = queryMysql("SELECT * FROM members WHERE user='$user'");
+    if ($user == "" || $pass == "")
+      $error = 'Not all fields were entered<br><br>';
+    else
+    {
+      $result = queryMysql("SELECT * FROM members WHERE user='$user'");
 
-  //     if ($result->num_rows)
-  //       $error = 'That username already exists<br><br>';
-  //     else
-  //     {
-  //       queryMysql("INSERT INTO members VALUES('$user', '$pass')");
-  //       die('<h4>Account created</h4>Please Log in.</div></body></html>');
-  //     }
-  //   }
-  // }
+      if ($result->num_rows)
+        $error = 'That username already exists<br><br>';
+      else
+      {
+        queryMysql("INSERT INTO members VALUES('$user', '$pass')");
+        die('<h4>Account created</h4>Please Log in.</div></body></html>');
+      }
+    }
+  }
 
   echo <<<_END
     <form method='post' action='signup.php'>$error
