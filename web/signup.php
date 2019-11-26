@@ -7,40 +7,21 @@
     {
       if (user.value == '')
       {
-        O('info').innerHTML = ''
+        $('#used').html('&nbsp;')
         return
       }
 
-      params  = "user=" + user.value
-      request = new ajaxRequest()
-      request.open("POST", "checkuser.php", true)
-      request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-      request.setRequestHeader("Content-length", params.length)
-      request.setRequestHeader("Connection", "close")
-
-      request.onreadystatechange = function()
-      {
-        if (this.readyState == 4)
-          if (this.status == 200)
-            if (this.responseText != null)
-              O('info').innerHTML = this.responseText
-      }
-      request.send(params)
+      $.post
+      (
+        'checkuser.php',
+        { user : user.value },
+        function(data)
+        {
+          $('#used').html(data)
+        }
+      )
     }
-
-    function ajaxRequest()
-    {
-      try { var request = new XMLHttpRequest() }
-      catch(e1) {
-        try { request = new ActiveXObject("Msxml2.XMLHTTP") }
-        catch(e2) {
-          try { request = new ActiveXObject("Microsoft.XMLHTTP") }
-          catch(e3) {
-            request = false
-      } } }
-      return request
-    }
-  </script>
+  </script>  
   <div class='main'><h3>Please enter your details to sign up</h3>
 _END;
 
@@ -53,17 +34,17 @@ _END;
     $pass = sanitizeString($_POST['pass']);
 
     if ($user == "" || $pass == "")
-      $error = "Not all fields were entered<br><br>";
+      $error = 'Not all fields were entered<br><br>';
     else
     {
-      $result = queryMySQL("SELECT * FROM members WHERE user='$user'");
+      $result = queryMysql("SELECT * FROM members WHERE user='$user'");
 
       if ($result->num_rows)
-        $error = "That username already exists<br><br>";
+        $error = 'That username already exists<br><br>';
       else
       {
-        queryMySQL("INSERT INTO members VALUES('$user', '$pass')");
-        die("<h4>Account created</h4>Please Log in.<br><br>");
+        queryMysql("INSERT INTO members VALUES('$user', '$pass')");
+        die('<h4>Account created</h4>Please Log in.</div></body></html>');
       }
     }
   }
