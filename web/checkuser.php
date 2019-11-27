@@ -4,7 +4,7 @@
   if (isset($_POST['user']))
   {
     $user   = sanitizeString($_POST['user']);
-    $result = queryMySQL("SELECT * FROM members WHERE user='$user'");
+    $result = $connection->queryMySQL("SELECT * FROM members WHERE user='$user'");
 
     if ($result->num_rows)
       echo  "<span class='taken'>&nbsp;&#x2718; " .

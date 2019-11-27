@@ -53,11 +53,11 @@
 
   function createTable($name, $query)
   {
-    queryMySQL("CREATE TABLE IF NOT EXISTS $name($query)");
+    queryMysql("CREATE TABLE IF NOT EXISTS $name($query)");
     echo "Table '$name' created or already exists.<br>";
   }
 
-  function queryMySQL($query)
+  function queryMysql($query)
   {
     global $connection;
     $result = $connection->query($query);
@@ -75,6 +75,21 @@
     return $connection->real_escape_string($var);
   }
 
+  function showProfile($user)
+  {
+    if (file_exists("$user.jpg"))
+      echo "<img src='$user.jpg' style='float:left;'>";
+
+    $result = queryMysql("SELECT * FROM profiles WHERE user='$user'");
+
+    if ($result->num_rows)
+    {
+      $row = $result->fetch_array(MYSQLI_ASSOC);
+      echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
+    }
+    else echo "<p>Nothing to see here, yet</p><br>";
+  }
+
   function destroySession()
   {
     $_SESSION=array();
@@ -83,21 +98,5 @@
       setcookie(session_name(), '', time()-2592000, '/');
 
     session_destroy();
-  }
-
-
-  function showProfile($user)
-  {
-    if (file_exists("$user.jpg"))
-      echo "<img src='$user.jpg' style='float:left;'>";
-
-    $result = queryMySQL("SELECT * FROM profiles WHERE user='$user'");
-
-    if ($result->num_rows)
-    {
-      $row = $result->fetch_array(MYSQLI_ASSOC);
-      echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
-    }
-    else echo "<p>Nothing to see here, yet</p><br>";
   }
 ?>
