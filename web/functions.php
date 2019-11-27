@@ -62,7 +62,7 @@
   function queryMySQL($query)
   {
     global $connection;
-    $result = $connection->query($query);
+    $result = query($connection, $query);
     if (!$result) die("Fatal Error");
     return $result;
   }
@@ -78,23 +78,12 @@
     //return $connection->mysqli_real_escape_string($var);
   }
 
-  //   function destroySession()
-  // {
-  //   $_SESSION=array();
-
-  //   if (session_id() != "" || isset($_COOKIE[session_name()]))
-  //     setcookie(session_name(), '', time()-2592000, '/');
-
-  //   session_destroy();
-  // }
-
-
   function showProfile($user)
   {
     if (file_exists("$user.jpg"))
       echo "<img src='$user.jpg' style='float:left;'>";
 
-    $result = queryMySQL("SELECT * FROM profiles WHERE user='$user'");
+    $result = queryMySQL($connection, "SELECT * FROM profiles WHERE user='$user'");
 
     if ($result->num_rows)
     {
@@ -102,5 +91,15 @@
       echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
     }
     else echo "<p>Nothing to see here, yet</p><br>";
+  }
+
+  function destroySession()
+  {
+    $_SESSION=array();
+
+    if (session_id() != "" || isset($_COOKIE[session_name()]))
+      setcookie(session_name(), '', time()-2592000, '/');
+
+    session_destroy();
   }
 ?>
