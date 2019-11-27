@@ -40,9 +40,16 @@
   );
 
   // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-  $connection = new mysqli($server, $username, $password, $db);
-  // if ($connection->connect_error) die($connection->connect_error);
-  if ($connection->connect_error) die("Fatal Error");
+  // $connection = new mysqli($server, $username, $password, $db);
+  // // if ($connection->connect_error) die($connection->connect_error);
+  //   if ($connection->connect_error) die("Fatal Error");
+
+$connection = new mysqli($server, $username, $password, $db);
+// Check connection
+if ($connection->connect_error) {
+   die("Connection failed: " . $connection->connect_error);
+}
+  echo "Connected successfully";
 
   function createTable($name, $query)
   {
