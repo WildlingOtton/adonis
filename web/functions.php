@@ -73,8 +73,9 @@
     $var = strip_tags($var);
     $var = htmlentities($var);
     if (get_magic_quotes_gpc())
-      $var = stripslashes($var);
-    return mysqli_real_escape_string($connection, $var);
+    $var = stripslashes($var);
+      return $var;
+    //return $connection->mysqli_real_escape_string($var);
   }
 
     function destroySession()
