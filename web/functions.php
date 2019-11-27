@@ -40,16 +40,16 @@
   );
 
   // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-  // $connection = new mysqli($server, $username, $password, $db);
-  // // if ($connection->connect_error) die($connection->connect_error);
-  //   if ($connection->connect_error) die("Fatal Error");
+  $connection = new mysqli($server, $username, $password, $db);
+  // if ($connection->connect_error) die($connection->connect_error);
+    if ($connection->connect_error) die("Fatal Error");
 
-$connection = new mysqli($server, $username, $password, $db);
-// Check connection
-if ($connection->connect_error) {
-   die("Connection failed: " . $connection->connect_error);
-}
-  echo "Connected successfully";
+// $connection = new mysqli($server, $username, $password, $db);
+// // Check connection
+// if ($connection->connect_error) {
+//    die("Connection failed: " . $connection->connect_error);
+// }
+//   echo "Connected successfully";
 
   function createTable($name, $query)
   {
@@ -65,15 +65,15 @@ if ($connection->connect_error) {
     return $result;
   }
 
-  function destroySession()
-  {
-    $_SESSION=array();
+  // function destroySession()
+  // {
+  //   $_SESSION=array();
 
-    if (session_id() != "" || isset($_COOKIE[session_name()]))
-      setcookie(session_name(), '', time()-2592000, '/');
+  //   if (session_id() != "" || isset($_COOKIE[session_name()]))
+  //     setcookie(session_name(), '', time()-2592000, '/');
 
-    session_destroy();
-  }
+  //   session_destroy();
+  // }
 
   function sanitizeString($var)
   {
