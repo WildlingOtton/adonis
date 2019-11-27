@@ -44,6 +44,8 @@
   // if ($connection->connect_error) die($connection->connect_error);
     if ($connection->connect_error) die("Fatal Error");
 
+    
+
 // $connection = new mysqli($server, $username, $password, $db);
 // // Check connection
 // if ($connection->connect_error) {
@@ -70,8 +72,9 @@
     global $connection;
     $var = strip_tags($var);
     $var = htmlentities($var);
-    $var = stripslashes($var);
-    return $connection->real_escape_string($var);
+    if (get_magic_quotes_gpc())
+      $var = stripslashes($var);
+    return mysqli_real_escape_string($connection, $var);
   }
 
     function destroySession()
