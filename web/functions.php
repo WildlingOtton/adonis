@@ -62,7 +62,8 @@
   function queryMySQL($query)
   {
     global $connection;
-    $result = $connection->query($query);
+   // $result = $connection->query($query);
+    $result = mysqli_query($connection,$query);
     if (!$result) die("Fatal Error");
     return $result;
   }
