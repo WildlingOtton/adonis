@@ -62,10 +62,6 @@
   function queryMySQL($query)
   {
     global $connection;
-      if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
-  }
-    echo "Connected successfully";
     $result = $connection->query($query);
     if (!$result) die("Fatal Error");
     return $result;
@@ -82,15 +78,15 @@
     //return $connection->mysqli_real_escape_string($var);
   }
 
-    function destroySession()
-  {
-    $_SESSION=array();
+  //   function destroySession()
+  // {
+  //   $_SESSION=array();
 
-    if (session_id() != "" || isset($_COOKIE[session_name()]))
-      setcookie(session_name(), '', time()-2592000, '/');
+  //   if (session_id() != "" || isset($_COOKIE[session_name()]))
+  //     setcookie(session_name(), '', time()-2592000, '/');
 
-    session_destroy();
-  }
+  //   session_destroy();
+  // }
 
 
   function showProfile($user)

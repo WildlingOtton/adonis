@@ -26,7 +26,7 @@
 _END;
 
   $error = $user = $pass = "";
-  if (isset($_SESSION['user'])) destroySession();
+  //  if (isset($_SESSION['user'])) destroySession();
 
   if (isset($_POST['user']))
   {
