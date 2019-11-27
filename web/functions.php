@@ -63,8 +63,10 @@
   {
     global $connection;
    // $result = $connection->query($query);
-    $result = mysqli_query($connection,$query);
-    if (!$result) die("Fatal Error");
+
+   $result = queryMySQL("SELECT * FROM profiles WHERE user='$user'");
+    // newish $result = mysqli_query($connection,$query);
+    if (!$result) die("Fatal Error - it broked");
     return $result;
   }
 
