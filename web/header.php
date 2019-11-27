@@ -7,13 +7,13 @@
 
   $userstr = ' (Guest)';
 
-  if (isset($_SESSION['user']))
-  {
-    $user     = $_SESSION['user'];
-    $loggedin = TRUE;
-    $userstr  = " ($user)";
-  }
-  else $loggedin = FALSE;
+  // if (isset($_SESSION['user']))
+  // {
+  //   $user     = $_SESSION['user'];
+  //   $loggedin = TRUE;
+  //   $userstr  = " ($user)";
+  // }
+  // else $loggedin = FALSE;
 
   echo "<title>$appname$userstr</title><link rel='stylesheet' " .
        "href='css/styles.css' type='text/css'>"                     .
@@ -22,7 +22,7 @@
        "<div class='appname'>$appname$userstr</div>"            .
        "<script src='js/javascript.js'></script>";
 
-  if ($loggedin)
+  // if ($loggedin)
   {
     echo "<br ><ul class='menu'>" .
          "<li><a href='members.php?view=$user'>Home</a></li>" .
@@ -34,7 +34,7 @@
          "<li><a href='profile.php'>Edit Profile</a></li>"    .
          "<li><a href='logout.php'>Log out</a></li></ul><br>";
   }
-  else
+  // else
   {
     echo ("<br><ul class='menu'>" .
           "<li><a href='index.php'>Home</a></li>"                .

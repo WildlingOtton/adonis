@@ -37,13 +37,13 @@ _END;
       $error = 'Not all fields were entered<br><br>';
     else
     {
-      $result = $connection->queryMysql("SELECT * FROM members WHERE user='$user'");
+      $result = queryMysql("SELECT * FROM members WHERE user='$user'");
 
       if ($result->num_rows)
         $error = 'That username already exists<br><br>';
       else
       {
-        $connection->queryMysql("INSERT INTO members VALUES('$user', '$pass')");
+        queryMysql("INSERT INTO members VALUES('$user', '$pass')");
         die('<h4>Account created</h4>Please Log in.</div></body></html>');
       }
     }
