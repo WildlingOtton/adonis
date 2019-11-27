@@ -62,6 +62,10 @@
   function queryMySQL($query)
   {
     global $connection;
+      if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+  }
+    echo "Connected successfully";
     $result = $connection->query($query);
     if (!$result) die("Fatal Error");
     return $result;
