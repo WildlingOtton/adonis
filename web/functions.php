@@ -40,6 +40,7 @@
   );
 
   // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+  mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
   $connection = new mysqli($server, $username, $password, $db);
   // if ($connection->connect_error) die($connection->connect_error);
     if ($connection->connect_error) die("Fatal Error");
@@ -64,8 +65,8 @@
     global $connection;
    // $result = $connection->query($query);
     $result = mysqli_query($connection,$query);
-     if (!$result) die("Fatal Error - broke");
-     return $result;
+    //  if (!$result) die("Fatal Error - broke");
+    //  return $result;
   }
 
   function sanitizeString($var)
