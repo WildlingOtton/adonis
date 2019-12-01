@@ -65,8 +65,8 @@
     global $connection;
    // $result = $connection->query($query);
     $result = mysqli_query($connection,$query);
-    //  if (!$result) die("Fatal Error - broke");
-    //  return $result;
+     if (!$result) die("Fatal Error - broke");
+     return $result;
   }
 
   function sanitizeString($var)
