@@ -1,10 +1,22 @@
 <?php 
   session_start();
 
-  echo "<!DOCTYPE html>\n<html><head>";
+  echo <<<_INIT
+  <!DOCTYPE html> 
+  <html>
+    <head>
+      <meta charset='utf-8'>
+      <meta name='viewport' content='width=device-width, initial-scale=1'> 
+      <link rel='stylesheet' href='js/jquery.mobile-1.4.5.min.css'>
+      <link rel='stylesheet' href='css/styles.css' type='text/css'>
+      <script src='js/javascript.js'></script>
+      <script src='jquery/jquery-2.2.4.min.js'></script>
+      <script src='jquery/jquery.mobile-1.4.5.min.js'></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>;
+  
+  _INIT;
 
   require_once 'functions.php';
-
   $userstr = ' (Guest)';
 
   // if (isset($_SESSION['user']))
@@ -15,13 +27,14 @@
   // }
   // else $loggedin = FALSE;
 
-  echo "<title>$appname$userstr</title><link rel='stylesheet' " .
-       "href='css/styles.css' type='text/css'>"                     .
-       "</head><body><center><canvas id='logo' width='624' "    .
-       "height='96'>$appname</canvas></center>"             .
-       "<div class='appname'>$appname$userstr</div>"            .
-       "<script src='js/javascript.js'></script>";
-
+  // echo "<title>$appname$userstr</title><link rel='stylesheet' " .
+  //      "href='css/styles.css' type='text/css'>"                     .
+  //      "</head><body><center><canvas id='logo' width='624' "    .
+  //      "height='96'>$appname</canvas></center>"             .
+  //      "<div class='appname'>$appname$userstr</div>"            .
+  //      "<script src='js/javascript.js'></script>";              
+  //      "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>";
+  echo "<title>$appname$userstr</title>
   // if ($loggedin)
   // {
     echo "<br ><ul class='menu'>" .
