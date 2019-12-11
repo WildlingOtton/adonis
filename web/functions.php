@@ -39,7 +39,7 @@
       'save_queries' => TRUE
   );
 
-
+  // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
   mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
   $connection = new mysqli($server, $username, $password, $db);
   // if ($connection->connect_error) die($connection->connect_error);
