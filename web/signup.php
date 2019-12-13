@@ -44,6 +44,7 @@ _END;
       else
       {
         queryMysql("INSERT INTO members VALUES('$user', '$pass')");
+        // $stmt = $conn->prepare("INSERT INTO members (user, pass) VALUES (?, ?)");
         die('<h4>Account created</h4>Please Log in.</div></body></html>');
       }
     }
