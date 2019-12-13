@@ -3,7 +3,7 @@
 //  $dbname  = 'adonis';   
 //  $dbuser  = 'adonis';   
 //  $dbpass  = 'Foster75';   
-//test 3
+
  $appname = "Adonis Weightlifting and Gym Tracker"; 
   
   
