@@ -13,7 +13,7 @@ image.onload = function()
   context.fillStyle = gradient
   context.fillText(  "Adonis ", 0, 0)
   context.strokeText("Adonis", 0, 0)
-  context.drawImage(image, 400, 60)
+  context.drawImage(image, 400, 0)
 }
 
 function O(i) { return typeof i == 'object' ? i : document.getElementById(i) }
